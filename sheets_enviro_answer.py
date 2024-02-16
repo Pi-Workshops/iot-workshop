@@ -28,11 +28,14 @@ def find_empty_row(creds):
 
     # Loop through all rows to find the first empty row
     for row_num in range(len(all_data)):
-      # HINT: use len(all_data[row_num]) to see if the length of the row is <= 0, 
-      #       which means it is empty.
-      # HINT: If the row isn't empty but all_data[row_num][0] is equal to '', that 
-      #       also indicates no valid data in the row.
-      # HINT: Return the first empty row to avoid overwriting any legit data.
+      if len(all_data[row_num]) <= 0:
+        print("Row " + str(row_num+1) + " is the first empty row available for data")
+        return row_num
+      elif all_data[row_num][0] == '':
+        print("Row " + str(row_num) + " is the first empty row available for data")
+        return row_num
+    print("Row " + str(row_num+1) + " is the first empty row available for data")
+    return row_num+1
 
   except HttpError as err:
     return err
@@ -43,9 +46,7 @@ def update_values(row_num, temp_f, humidity, creds):
     service = build('sheets', 'v4', credentials=creds)
     sheet = service.spreadsheets()
     body = {
-      # HINT: datetime.datetime.now()) returns the current time. Send the current 
-      #       time, temp_f, and humidity as three values to be written in the same
-      #       row at once. 
+      'values': [[str(datetime.datetime.now()),str(temp_f),str(humidity)]]
     }
     print (body)
     # Calculate the Sheets output range based on row
