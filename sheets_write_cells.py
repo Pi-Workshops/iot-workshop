@@ -6,8 +6,8 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
 # --------- User Settings ---------
-SHEETS_ID = "1n3A4DSniTzKtrWLC1XJo5QVCJLOCBPVZYW1_D3tW014"
-SHEETS_RANGE = 'Sheet1!A1:C1'
+SHEETS_ID = "PLACE SHEETS ID HERE"
+SHEETS_RANGE = ''
 TEST_DATA1 = "2024-02-13 13:37:15"
 TEST_DATA2 = "85.6"
 TEST_DATA3 = "30.96"
@@ -42,7 +42,7 @@ def main():
     service = build('sheets', 'v4', credentials=creds)
     sheet = service.spreadsheets()
     body = {
-      'values': [[TEST_DATA1,TEST_DATA2,TEST_DATA3]]
+      'values': [[]]
     }
     print (body)
     result = service.spreadsheets().values().update(

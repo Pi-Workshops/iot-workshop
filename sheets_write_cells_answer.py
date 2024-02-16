@@ -6,8 +6,8 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
 # --------- User Settings ---------
-SHEETS_ID = "1gIFh9rZQCGOuowYPH_7aetXP2P8_CWpSA0CRBm8ra5c"
-SHEETS_RANGE = 'Sheet1!A1:A3'
+SHEETS_ID = "PLACE SHEETS ID HERE"
+SHEETS_RANGE = 'Sheet1!A1:C1'
 TEST_DATA1 = "2024-02-13 13:37:15"
 TEST_DATA2 = "85.6"
 TEST_DATA3 = "30.96"
